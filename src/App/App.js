@@ -1,5 +1,11 @@
-import logo from './logo.svg';
+import logo from '../logo.svg';
+
+
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Movies from '../Movies/Movies';
+import ImageCard from '../ImageCard/ImageCard';
+import MovieCard from '../MovieCard/MovieCard';
 
 function App() {
   return (
