@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import './MovieCard.css';
 import PropTypes from 'prop-types';
 
@@ -13,11 +12,13 @@ import PropTypes from 'prop-types';
 
 function MovieCard({card, goBackToMain}) {
   // when API is hooked up, will need a GET request for the details of the card with the matching id
-  const { title } = card;
+  const { title, release_date, average_rating } = card;
   return (
     <div>
-      <h2>{title}</h2>
-      <button onClick={goBackToMain}>Return to All</button>
+      <h2 className='MovieTitle'>{title}</h2>
+      <h3 className='ReleaseDate'>{release_date}</h3>
+      <h3 className='Rating'>average {average_rating}/10</h3>
+      <button className='BackButton' onClick={goBackToMain}>Return to All</button>
     </div>
   )
 }
