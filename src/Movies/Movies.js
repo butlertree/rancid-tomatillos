@@ -1,5 +1,6 @@
 import React from 'react';
 import './Movies.css';
+import PropTypes from 'prop-types';
 import ImageCard from '../ImageCard/ImageCard';
 import MovieCard from '../MovieCard/MovieCard'
 
@@ -22,3 +23,7 @@ function Movies({ movies, viewCardDetails }) {
   }
   
   export default Movies;
+
+  Movies.propTypes = {
+    //movies:
+  }

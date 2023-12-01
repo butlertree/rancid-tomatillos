@@ -1,6 +1,5 @@
 import logo from '../logo.svg';
-
-
+import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Movies from '../Movies/Movies';
@@ -27,34 +26,24 @@ function App() {
   }
   
   // // Function to go back to the card list used in the MovieCard
-  // function goBackToMain() {
-  //   setSelectedCard(null);
-  // }
+  function goBackToMain() {
+    setSelectedCard(null);
+  }
   
   console.log(movies)
 
   return (
     <main className='App'>
       <h1 className='bigHeading'>Rancid Tomatillos</h1>
-        <Movies
-          movies={movies}
-          viewCardDetails={viewCardDetails}
-        />
-  
+      {selectedCard ? (<MovieCard card={selectedCard} goBackToMain={goBackToMain} />
+      ) : (<Movies movies={movies} viewCardDetails={viewCardDetails} />
+    )}
     </main>
   );
 }
 
 export default App;
 
+App.propTypes = {
 
-//This is a conditional statement that will function 
-
-// {selectedCard ? (
-//   // <MovieCard card={selectedCard} goBackToMain={goBackToMain} />
-// ) : (
-//   <Movies
-//     movies={movies}
-//     viewCardDetails={viewCardDetails}
-//   />
-// )}
+}

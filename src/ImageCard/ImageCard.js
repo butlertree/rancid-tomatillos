@@ -1,6 +1,6 @@
 import React from 'react';
 import './ImageCard.css';
-
+import PropTypes from 'prop-types';
 
 
 
@@ -17,3 +17,5 @@ function ImageCard({ card, viewCardDetails }) {
 }
 
 export default ImageCard;
+
+ImageCard.propTypes = {}
