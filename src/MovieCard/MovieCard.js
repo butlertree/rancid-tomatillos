@@ -12,12 +12,17 @@ import PropTypes from 'prop-types';
 
 function MovieCard({card, goBackToMain}) {
   // when API is hooked up, will need a GET request for the details of the card with the matching id
-  const { title, release_date, average_rating } = card;
+  const { poster_path, title, release_date, average_rating } = card;
   return (
     <div>
-      <h2 className='MovieTitle'>{title}</h2>
-      <h3 className='ReleaseDate'>{release_date}</h3>
-      <h3 className='Rating'>average {average_rating}/10</h3>
+      <section className='DetailView'>
+        <img src={poster_path} alt='movie poster' className='Poster' />
+        <article className='DetailDisplay'>
+          <h2 className='MovieTitle'>{title}</h2>
+          <h3 className='ReleaseDate'>{release_date}</h3>
+          <h3 className='Rating'>average {average_rating}/10</h3>
+        </article>
+      </section>
       <button className='BackButton' onClick={goBackToMain}>Return to All</button>
     </div>
   )
