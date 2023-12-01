@@ -6,26 +6,55 @@ import './App.css';
 import Movies from '../Movies/Movies';
 import ImageCard from '../ImageCard/ImageCard';
 import MovieCard from '../MovieCard/MovieCard';
+import movieData from '../data.js'
 
 function App() {
+  // State to manage the selected card
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  // State to store the list of sightings
+  const [movies, setMovies] = useState([]);
+
+  //Temporary way to get the data from data.js
+  useEffect(() => {
+    setMovies(movieData.movies)
+    
+  }, []);
+  
+   // Function to view card details
+  function viewCardDetails(card) {
+    setSelectedCard(card);
+  }
+  
+  // // Function to go back to the card list used in the MovieCard
+  // function goBackToMain() {
+  //   setSelectedCard(null);
+  // }
+  
+  console.log(movies)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className='App'>
+      <h1 className='bigHeading'>Rancid Tomatillos</h1>
+        <Movies
+          movies={movies}
+          viewCardDetails={viewCardDetails}
+        />
+  
+    </main>
   );
 }
 
 export default App;
+
+
+//This is a conditional statement that will function 
+
+// {selectedCard ? (
+//   // <MovieCard card={selectedCard} goBackToMain={goBackToMain} />
+// ) : (
+//   <Movies
+//     movies={movies}
+//     viewCardDetails={viewCardDetails}
+//   />
+// )}

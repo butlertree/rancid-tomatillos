@@ -1,0 +1,15 @@
+.card {
+    border: 2px solid #ccc; 
+    padding: 10px; 
+    cursor: pointer; 
+  
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Movie-Poster {
+    max-width: 100%; 
+    max-height: 100%; 
+  }
