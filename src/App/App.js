@@ -23,6 +23,7 @@ function App() {
    // Function to view card details
   function viewCardDetails(card) {
     setSelectedCard(card);
+    
   }
   
   // // Function to go back to the card list used in the MovieCard
@@ -36,7 +37,7 @@ function App() {
     <main className='App'>
       <h1 className='bigHeading'>Rancid Tomatillos</h1>
       {selectedCard ? (<MovieCard card={selectedCard} goBackToMain={goBackToMain} />
-      ) : (<Movies movies={movies} viewCardDetails={viewCardDetails} />
+      ) : (<Movies movies={movies} viewCardDetails={viewCardDetails}/>
     )}
     </main>
   );
