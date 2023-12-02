@@ -14,6 +14,7 @@ function App() {
   // State to store the list of sightings
   const [movies, setMovies] = useState([]);
 
+  //State for error handling
   const [error, setError] = useState('')
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function App() {
     setSelectedCard(null);
   }
   
-  console.log(movies)
+  // console.log(movies)
 
   return (
     <main className='App'>
