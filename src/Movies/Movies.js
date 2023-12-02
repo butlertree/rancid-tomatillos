@@ -25,5 +25,6 @@ function Movies({ movies, viewCardDetails,}) {
   export default Movies;
 
   Movies.propTypes = {
-    //movies:
+    movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+    viewCardDetails: PropTypes.func.isRequired
   }

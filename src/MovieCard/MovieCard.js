@@ -47,15 +47,7 @@ function MovieCard({ card, goBackToMain }) {
 export default MovieCard;
 
 
-
-
-
-
-
-
-
-
-
-// .propTypes = {
-
-// }
+MovieCard.propTypes = {
+card: PropTypes.object.isRequired,
+goBackToMain: PropTypes.func.isRequired,
+}
