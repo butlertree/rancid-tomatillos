@@ -8,13 +8,11 @@ import PropTypes from 'prop-types';
 
 //USER STORY: As a user, I can click a movie, and see that movie’s details
 
-
-
 function MovieCard({ card, goBackToMain }) {
   const { id } = card;
   const [additionalData, setAdditionalData] = useState(null);
 
-  const [error, setError] =useState('')
+  const [error, setError] = useState('')
 
   useEffect(() => {
     // Fetch additional data based on the ID

@@ -14,16 +14,19 @@ function App() {
   // State to store the list of sightings
   const [movies, setMovies] = useState([]);
 
-  //Temporary way to get the data from data.js
+  //State for error handling
+  const [error, setError] = useState('')
+
   useEffect(() => {
-    setMovies(movieData.movies)
-    
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/')
+      .then(response => response.json())
+      .then(data => setMovies(data.movies))
+      .catch(error => setError(error.message))
   }, []);
   
    // Function to view card details
   function viewCardDetails(card) {
     setSelectedCard(card);
-    
   }
   
   // // Function to go back to the card list used in the MovieCard
@@ -31,7 +34,7 @@ function App() {
     setSelectedCard(null);
   }
   
-  console.log(movies)
+  // console.log(movies)
 
   return (
     <main className='App'>
@@ -39,6 +42,7 @@ function App() {
       {selectedCard ? (<MovieCard card={selectedCard} goBackToMain={goBackToMain} />
       ) : (<Movies movies={movies} viewCardDetails={viewCardDetails}/>
     )}
+    {error && <h2>Something went wrong, please try again later!</h2>}
     </main>
   );
 }
