@@ -9,16 +9,19 @@ import PropTypes from 'prop-types';
 //USER STORY: As a user, I can click a movie, and see that movie’s details
 
 
+
 function MovieCard({ card, goBackToMain }) {
   const { id } = card;
   const [additionalData, setAdditionalData] = useState(null);
+
+  const [error, setError] =useState('')
 
   useEffect(() => {
     // Fetch additional data based on the ID
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => response.json())
-      .then(data => setAdditionalData(data))
-      .catch(error => console.log(error.messate))
+      .then(data => setAdditionalData(data.movie))
+      .catch(error => setError(error.message))
   }, [id]); // Fetch data whenever the ID changes
 
   const { title, poster_path, release_date, overview, genres, runtime, tagline, average_rating } = additionalData || {};
@@ -29,6 +32,7 @@ function MovieCard({ card, goBackToMain }) {
         <img src={poster_path} alt='movie poster' className='poster' />
         <p className='tagline'>{tagline}</p>
       </div>
+      {error && <h2>Try Again Later!</h2>}
       <div className='right-container'>
         <h2 className='title'>{title}</h2>
         <h3 className='release-date'>{release_date}</h3>
