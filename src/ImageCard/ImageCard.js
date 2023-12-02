@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 
-function ImageCard({ card, viewCardDetails }) {
+function ImageCard({ card, viewCardDetails, }) {
   const { poster_path } = card;
 
   return (
