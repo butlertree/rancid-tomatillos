@@ -18,4 +18,7 @@ function ImageCard({ card, viewCardDetails, }) {
 
 export default ImageCard;
 
-ImageCard.propTypes = {}
+ImageCard.propTypes = {
+card: PropTypes.object.isRequired,
+viewCardDetails: PropTypes.func.isRequired,
+}
