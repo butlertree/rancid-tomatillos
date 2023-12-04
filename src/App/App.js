@@ -1,11 +1,9 @@
-import logo from '../logo.svg';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Movies from '../Movies/Movies';
 import ImageCard from '../ImageCard/ImageCard';
 import MovieCard from '../MovieCard/MovieCard';
-import movieData from '../data.js'
 
 function App() {
   // State to manage the selected card
