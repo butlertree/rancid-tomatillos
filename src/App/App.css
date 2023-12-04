@@ -1,18 +1,13 @@
 body {
   font-family: 'Chakra Petch', sans-serif;
-}
-
-.root {
+  margin: 0;
   height: 100vh;
   width: 100vw;
+  text-align: center;
 }
 
 img {
-  border: 2px solid #ffffff; 
-}
-
-.App {
-  text-align: center;
+  border: 2px solid white; 
 }
 
 .bigHeading {

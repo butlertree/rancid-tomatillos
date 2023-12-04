@@ -4,6 +4,7 @@ main {
 
 .movie-card {
   display: flex;
+  color: #A30000;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
@@ -12,7 +13,7 @@ main {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
+  background-color: white;
 }
 
 .left-container {
@@ -55,12 +56,8 @@ main {
 
 .back-button {
   padding: 10px 20px;
-  background-color: #FF7700;
+  background-color: #004777;
   color: white;
   border: none;
   border-radius: 5px;
-}
-
-.back-button:hover {
-  background-color: #004777;
 }
