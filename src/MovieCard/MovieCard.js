@@ -36,6 +36,8 @@ function MovieCard({ card, goBackToMain }) {
         <h3 className='release-date'>{release_date}</h3>
         <h3 className='average-rating'>average {average_rating?.toFixed(2)}/10</h3>
         <p className='overview'>{overview}</p>
+        <p className='runtime'>{runtime} minutes</p>
+        <h4 className='genres'>{genres}</h4>
       </div>
       <button className='back-button' onClick={goBackToMain}>
         Return to All
