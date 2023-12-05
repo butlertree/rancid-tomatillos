@@ -21,6 +21,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px; /* Add padding for spacing */
 }
 
 .right-container {
@@ -29,9 +30,10 @@ main {
 }
 
 .poster {
-  max-width: 200px;
+  max-width: 150px; /* Adjust the max-width to make the image smaller */
   height: auto;
   margin-right: 20px;
+  align-self: flex-start; /* Align the image to the top of the left container */
 }
 
 .tagline {
