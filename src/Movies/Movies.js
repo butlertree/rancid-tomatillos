@@ -6,6 +6,7 @@ import MovieCard from '../MovieCard/MovieCard'
 
 
 
+
 function Movies({ movies, viewCardDetails,}) {
   
     //Map over the movies array and set each ImageCard up with these key values and a new Card componect is rendered
@@ -28,3 +29,5 @@ function Movies({ movies, viewCardDetails,}) {
     movies: PropTypes.arrayOf(PropTypes.object).isRequired,
     viewCardDetails: PropTypes.func.isRequired
   }
+
+

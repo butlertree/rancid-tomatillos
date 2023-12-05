@@ -22,3 +22,5 @@ ImageCard.propTypes = {
 card: PropTypes.object.isRequired,
 viewCardDetails: PropTypes.func.isRequired,
 }
+
+
