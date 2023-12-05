@@ -54,7 +54,7 @@ function App() {
           element={<Movies movies={movies} viewCardDetails={viewCardDetails} />}
         />
         <Route
-          path="/movie/:id"
+          path="/movie/:id" 
           element={<MovieCard />}
         />
       </Routes>
