@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import './App.css';
@@ -6,7 +5,6 @@ import Movies from '../Movies/Movies';
 import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
 import ImageCard from '../ImageCard/ImageCard';
 import MovieCard from '../MovieCard/MovieCard';
-import movieData from '../data.js'
 
 
 
