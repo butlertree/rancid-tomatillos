@@ -35,13 +35,9 @@ describe('Load Page', () => {
   });
 });
 
-
-
-
-
-describe('API 1', () => {
-  it('should successfully retrieve data from API 1', () => {
-    // Intercept the GET request to API 1 and use the fixture without the extension
+describe('API calls', () => {
+  it('should successfully retrieve data from the movies API', () => {
+    // Intercept the GET request to the movies API and use the fixture without the extension
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       fixture: 'apiResponse', // Use the fixture without the file extension
     }).as('api1Request');
@@ -55,4 +51,21 @@ describe('API 1', () => {
     // Assertions to check the response data or UI elements
     cy.get('img[src="https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg"]').should('be.visible');
   });
+
+  it('should successfully retrieve data from the endpoint with the id of the selected poster', () => {
+    // Intercept the GET request to the movies API and use the fixture without the extension
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
+      fixture: 'apiResponse2', // Use the fixture without the file extension
+    }).as('api2Request');
+
+    // Visit the specified page of your application
+    cy.visit('/436270');
+
+    // Wait for the API request to complete
+    cy.wait('@api2Request');
+
+    cy.get('img[src="https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg"]').should('be.visible');
+
+    cy.get(".runtime").should('contain.125 minutes');
+  })
 });
