@@ -2,7 +2,7 @@
 import './MovieCard.css';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 
 // { goBackToMain }
 
@@ -46,6 +46,9 @@ function MovieCard() {
       <div className="left-container">
         <img src={poster_path} alt="movie poster" className="poster" />
       </div>
+      <nav>
+        <NavLink to="/" className="nav">Main</NavLink>
+       </nav>
       <div className="right-container">
         <h2 className="title">{title}</h2>
         <p className="tagline">{tagline}</p>
