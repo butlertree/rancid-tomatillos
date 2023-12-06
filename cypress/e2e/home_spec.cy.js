@@ -1,9 +1,7 @@
-
-
 //User loads the page//
 describe('Load Page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('/');
   });
 
   it('should display "Rancid Tomatillos" heading', () => {
@@ -15,11 +13,10 @@ describe('Load Page', () => {
   });
 });
 
-
 //User selects a card//
 describe('View Card Details', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('/');
   });
 
   it('should display movie details when a card is clicked', () => {
@@ -31,7 +28,7 @@ describe('View Card Details', () => {
 //User returns to main page//
 describe('Return to Main Page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('/');
   });
 
   it('should return to the main page when the "Return to All" button is clicked', () => {
@@ -41,9 +38,6 @@ describe('Return to Main Page', () => {
   });
 });
 
-
-
-
 describe('API 1', () => {
   it('should successfully retrieve data from API 1', () => {
     // Intercept the GET request to API 1 and use the fixture without the extension
@@ -52,7 +46,7 @@ describe('API 1', () => {
     }).as('api1Request');
 
     // Visit the main page of your application
-    cy.visit('http://localhost:3000');
+    cy.visit('/');
 
     // Wait for the API request to complete
     cy.wait('@api1Request');
