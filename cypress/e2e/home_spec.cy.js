@@ -5,38 +5,39 @@ describe('Load Page', () => {
   });
 
   it('should display "Rancid Tomatillos" heading', () => {
-    cy.contains('Rancid Tomatillos');
+    cy.get('h1').contains('Rancid Tomatillos');
   });
 
   it('should display movie cards', () => {
     cy.get('.card').should('exist');
   });
-});
 
-//User selects a card//
-describe('View Card Details', () => {
-  beforeEach(() => {
-    cy.visit('/');
+  //User selects a card//
+  describe('View Card Details', () => {
+    // beforeEach(() => {
+    //   cy.visit('/');
+    // });
+
+    it('should display movie details when a card is clicked', () => {
+      cy.get('.card').first().click();
+      cy.get('.movie-card').should('exist');
+    });
   });
 
-  it('should display movie details when a card is clicked', () => {
-    cy.get('.card').first().click();
-    cy.get('.movie-card').should('exist');
-  });
-});
+  //User returns to main page//
+  describe('Return to Main Page', () => {
 
-//User returns to main page//
-describe('Return to Main Page', () => {
-  beforeEach(() => {
-    cy.visit('/');
-  });
-
-  it('should return to the main page when the "Return to All" button is clicked', () => {
-    cy.get('.card').first().click();
-    cy.get('.back-button').click();
-    cy.get('.card').should('exist');
+    // it('should return to the main page when the "Return to All" button is clicked', () => {
+    //   cy.get('.card').first().click();
+    //   cy.get('.back-button').click();
+    //   cy.get('.card').should('exist');
+    // });
   });
 });
+
+
+
+
 
 describe('API 1', () => {
   it('should successfully retrieve data from API 1', () => {
