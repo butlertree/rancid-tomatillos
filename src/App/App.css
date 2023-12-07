@@ -4,16 +4,22 @@ body {
   height: 100vh;
   width: 100vw;
   text-align: center;
+  background-color: #EFD28D;
 }
 
 img {
   border: 2px solid white; 
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
 .bigHeading {
   background-color: white;
   color: #A30000;
   font-size: 75px;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
 }
