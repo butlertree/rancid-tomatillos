@@ -21,7 +21,8 @@ function MovieCard() {
 
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
         .then((response) => response.json())
-        .then((data) => setVideoData(data.videos))
+        .then((data) => {console.log(data.videos);
+          setVideoData(data.videos)})
         .catch((error) => setError(error.message));
     }
   }, [id]);
@@ -40,7 +41,7 @@ function MovieCard() {
 
   const teaserVideoKey = findTeaserVideoKey(videoData);
   const videoUrl = teaserVideoKey ? `https://www.youtube.com/embed/${teaserVideoKey}` : null;
-
+console.log(videoUrl)
   return (
     <div className="movie-card">
       <div className="left-container">
@@ -48,7 +49,7 @@ function MovieCard() {
       </div>
       <nav>
         <NavLink to="/" className="nav">Main</NavLink>
-       </nav>
+      </nav>
       <div className="right-container">
         <h2 className="title">{title}</h2>
         <p className="tagline">{tagline}</p>
@@ -60,7 +61,7 @@ function MovieCard() {
           <iframe width="560" height="315" src={videoUrl} allowFullScreen title="Teaser Video"></iframe>
         )}
       </div>
-      {error && <h2>Try Again Later!</h2>}
+      {error && <h2>Something went wrong, please try again later!</h2>}
     </div>
   );
 }
