@@ -36,7 +36,7 @@ function MovieCard() {
     return teaserKey;
   }
 
-  const { title, poster_path, release_date, overview, tagline, average_rating } = additionalData || {};
+  const { title, poster_path, runtime, release_date, overview, tagline, average_rating } = additionalData || {};
 
   const teaserVideoKey = findTeaserVideoKey(videoData);
   const videoUrl = teaserVideoKey ? `https://www.youtube.com/embed/${teaserVideoKey}` : null;
@@ -52,6 +52,7 @@ function MovieCard() {
       <div className="right-container">
         <h2 className="title">{title}</h2>
         <p className="tagline">{tagline}</p>
+        <p className='runtime'>{runtime} minutes</p>
         <h3 className="release-date">{release_date}</h3>
         <h3 className="average-rating">average {average_rating?.toFixed(2)}/10</h3>
         <p className="overview">{overview}</p>
