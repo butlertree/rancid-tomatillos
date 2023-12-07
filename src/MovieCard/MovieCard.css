@@ -1,7 +1,3 @@
-main {
-  background-color: #EFD28D;
-}
-
 .movie-card {
   display: flex;
   color: #A30000;
@@ -14,6 +10,7 @@ main {
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   background-color: white;
+  height: 100%;
 }
 
 .left-container {
