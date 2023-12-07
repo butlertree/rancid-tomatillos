@@ -16,6 +16,14 @@ describe('API calls', () => {
     cy.get('img[src="https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg"]').should('be.visible');
   });
 
+  //this is straight out of the REACT docs, I'm not sure if it needs a fixture for the error?
+  it('should show error messaging to a user', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', { forceNetworkError: true }).as('error');
+    // assert that this request happened
+    // and that it ended in an error
+    cy.wait('@error').should('have.property', 'error');
+  });
+
   it('should successfully retrieve data from the endpoint with the id of the selected poster', () => {
     // Intercept the GET request to the movies API and use the fixture without the extension
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
@@ -43,24 +51,27 @@ describe('API calls', () => {
     });
 
     it('should display movie cards', () => {
-      cy.get('.Movie-Poster').should('exist');
+      cy.get('.movie-poster').should('exist');
     });
 
     //User selects a card//
     describe('View Card Details', () => {
       it('should display movie details when a card is clicked', () => {
-        cy.get('.Movie-Poster').first().click();
-        cy.get('.movie-card').should('exist');
+        cy.get('.movie-poster').first().click();
+        cy.get('.right-container').should('exist');
       });
     });
 
-    //User returns to main page//
-    describe('Return to Main Page', () => {
-      // it('should return to the main page when the "Main" button is clicked', () => {
-      //   cy.get('.card').first().click();
-      //   cy.get('.back-button').click();
-      //   cy.get('.card').should('exist');
-      // });
-    });
+    
   });
+  
+  //User returns to main page//
+    describe('Return to Main Page', () => {
+      it('should return to the main page when the "Main" button is clicked', () => {
+        cy.visit('/movie/436270');
+        cy.get('.movie-card').should('exist');
+        cy.get('.nav').click();
+        cy.get('.movie-poster').should('exist');
+      });
+    });
 });

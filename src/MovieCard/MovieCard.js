@@ -53,8 +53,8 @@ function MovieCard() {
         <h2 className="title">{title}</h2>
         <p className="tagline">{tagline}</p>
         <p className='runtime'>{runtime} minutes</p>
-        <h3 className="release-date">{release_date}</h3>
-        <h3 className="average-rating">average {average_rating?.toFixed(2)}/10</h3>
+        <h3 className="release-date">released {release_date}</h3>
+        <h3 className="average-rating">average rating {average_rating?.toFixed(2)}/10</h3>
         <p className="overview">{overview}</p>
         {teaserVideoKey && (
           <iframe width="560" height="315" src={videoUrl} allowFullScreen title="Teaser Video"></iframe>
