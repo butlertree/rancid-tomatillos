@@ -12,7 +12,6 @@ function Movies({ movies, viewCardDetails,}) {
         <ImageCard
           key={movie.id}
           card={movie} //passing the movie object as the card prop to the ImageCard.js
-          viewCardDetails={() => viewCardDetails(movie)} //passing the onViewCardDetails as a prop to ImageCard.js
         />
       ))}
     </div>

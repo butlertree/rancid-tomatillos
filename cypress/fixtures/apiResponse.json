@@ -7,7 +7,15 @@
       "title": "Black Adam",
       "average_rating": 4,
       "release_date": "2022-10-19"
-    }
+    },
+    {
+      "id": 760104,
+      "poster_path": "https://image.tmdb.org/t/p/original//woTQx9Q4b8aO13jR9dsj8C9JESy.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original//70Rm9ItxKuEKN8iu6rNjfwAYUCJ.jpg",
+      "title": "X",
+      "average_rating": 1,
+      "release_date": "2022-03-17"
+      }
   ]
 }
   

@@ -6,7 +6,9 @@ describe('API calls', () => {
     }).as('api1Request');
     cy.visit('/');
     cy.wait('@api1Request');
+    //These images represent the first and last images of the moveis api
     cy.get('img[src="https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg"]').should('be.visible');
+    cy.get('img[src="https://image.tmdb.org/t/p/original//woTQx9Q4b8aO13jR9dsj8C9JESy.jpg"]').should('be.visible');
   });
 
   it('should show error messaging to a user', () => {
@@ -41,6 +43,7 @@ describe('API calls', () => {
     }).as('api3Request');
     cy.visit('/movie/436270');
     cy.wait('@api3Request');
+    //There is only one video that can be displayed
     cy.get('iframe[src="https://www.youtube.com/embed/JaV7mmc9HGw"]').should('be.visible');
   });
 
