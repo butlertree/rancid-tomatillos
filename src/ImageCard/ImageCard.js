@@ -13,7 +13,7 @@ function ImageCard({ card }) {
   return (
     <Link to={`/movie/${id}`}> 
         <div className='logo-container'>
-          <img src={poster_path} alt='Movie Poster' className='Movie-Poster' />
+          <img src={poster_path} alt='Movie Poster' className='movie-poster' />
         </div>
     </Link>
   );
