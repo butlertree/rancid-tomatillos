@@ -5,6 +5,7 @@ import Movies from '../Movies/Movies';
 import { Routes, Route, NavLink, } from 'react-router-dom';
 import ImageCard from '../ImageCard/ImageCard';
 import MovieCard from '../MovieCard/MovieCard';
+import NotFound from '../NotFound/NotFound';
 
 
 
@@ -38,6 +39,10 @@ function App() {
         <Route
           path="/movie/:id" 
           element={<MovieCard />}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
         />
       </Routes>
       {error && <h2>Something went wrong, please try again later!</h2>}
