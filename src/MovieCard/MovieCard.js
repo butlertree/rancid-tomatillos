@@ -1,55 +1,72 @@
 
 import './MovieCard.css';
 import React, { useState, useEffect } from 'react';
-
 import PropTypes from 'prop-types';
+import { useParams, NavLink } from 'react-router-dom';
 
-// from https://rancid-tomatillos.herokuapp.com/api/v2/movies/<id>/ need to grab key values of title, poster_path, release_date, overview, genres, budget, revenue, runtime, tagline, and average_rating
+// { goBackToMain }
 
-//USER STORY: As a user, I can click a movie, and see that movie’s details
-
-function MovieCard({ card, goBackToMain }) {
-  const { id } = card;
+function MovieCard() {
+  const { id } = useParams();
   const [additionalData, setAdditionalData] = useState(null);
-
-  const [error, setError] = useState('')
+  const [videoData, setVideoData] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    // Fetch additional data based on the ID
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => response.json())
-      .then(data => setAdditionalData(data.movie))
-      .catch(error => setError(error.message))
-  }, [id]); // Fetch data whenever the ID changes
+    if (id) {
+      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+        .then((response) => response.json())
+        .then((data) => setAdditionalData(data.movie))
+        .catch((error) => setError(error.message));
 
-  const { title, poster_path, release_date, overview, genres, runtime, tagline, average_rating } = additionalData || {};
+      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
+        .then((response) => response.json())
+        .then((data) => setVideoData(data.videos))
+        .catch((error) => setError(error.message));
+    }
+  }, [id]);
+
+  function findTeaserVideoKey(videos) {
+    let teaserKey = null;
+    videos.forEach((video) => {
+      if (video.site === 'YouTube' && (video.type === 'Teaser' || video.type === 'Trailer')) {
+        teaserKey = video.key;
+      }
+    });
+    return teaserKey;
+  }
+
+  const { title, poster_path, runtime, release_date, overview, tagline, average_rating } = additionalData || {};
+
+  const teaserVideoKey = findTeaserVideoKey(videoData);
+  const videoUrl = teaserVideoKey ? `https://www.youtube.com/embed/${teaserVideoKey}` : null;
 
   return (
-    <div className='movie-card'>
-      <div className='left-container'>
-        <img src={poster_path} alt='movie poster' className='poster' />
-        <p className='tagline'>{tagline}</p>
+    <div className="movie-card">
+      <div className="left-container">
+        <img src={poster_path} alt="movie poster" className="poster" />
+      </div>
+      <nav>
+        <NavLink to="/" className="nav">Main</NavLink>
+       </nav>
+      <div className="right-container">
+        <h2 className="title">{title}</h2>
+        <p className="tagline">{tagline}</p>
+        <p className='runtime'>{runtime} minutes</p>
+        <h3 className="release-date">released {release_date}</h3>
+        <h3 className="average-rating">average rating {average_rating?.toFixed(2)}/10</h3>
+        <p className="overview">{overview}</p>
+        {teaserVideoKey && (
+          <iframe width="560" height="315" src={videoUrl} allowFullScreen title="Teaser Video"></iframe>
+        )}
       </div>
       {error && <h2>Try Again Later!</h2>}
-      <div className='right-container'>
-        <h2 className='title'>{title}</h2>
-        <h3 className='release-date'>{release_date}</h3>
-        <h3 className='average-rating'>average {average_rating?.toFixed(2)}/10</h3>
-        <p className='overview'>{overview}</p>
-        <p className='runtime'>{runtime} minutes</p>
-        <h4 className='genres'>{genres}</h4>
-      </div>
-      <button className='back-button' onClick={goBackToMain}>
-        Return to All
-      </button>
     </div>
   );
 }
 
-export default MovieCard;
-
-
 MovieCard.propTypes = {
-card: PropTypes.object.isRequired,
-goBackToMain: PropTypes.func.isRequired,
-}
+  goBackToMain: PropTypes.func.isRequired,
+};
+
+export default MovieCard;
