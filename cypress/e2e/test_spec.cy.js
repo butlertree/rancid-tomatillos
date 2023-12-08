@@ -83,3 +83,16 @@ describe('API calls', () => {
       });
     });
 });
+
+describe('Invalid Route Handling', () => {
+  it('should display the NotFound component on a non-existent path', () => {
+    // Visit a non-existent path
+    cy.visit('/path-that-does-not-exist');
+
+    // Check if the NotFound component is rendered
+    cy.get('.not-found').should('exist');
+    cy.get('h2').contains('404 Page Not Found');
+    cy.get('p').contains('The page you are looking for does not exist.');
+    cy.get('.nav').contains('Main').should('exist');
+  });
+});
