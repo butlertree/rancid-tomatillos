@@ -68,8 +68,4 @@ console.log(videoUrl)
   );
 }
 
-MovieCard.propTypes = {
-  goBackToMain: PropTypes.func.isRequired,
-};
-
 export default MovieCard;

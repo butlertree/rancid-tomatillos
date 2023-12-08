@@ -2,9 +2,9 @@ import React from 'react';
 import './Movies.css';
 import PropTypes from 'prop-types';
 import ImageCard from '../ImageCard/ImageCard';
-import MovieCard from '../MovieCard/MovieCard'
 
-function Movies({ movies, viewCardDetails,}) {
+
+function Movies({ movies }) {
   //Map over the movies array and set each ImageCard up with these key values and a new Card componect is rendered
   return (
     <div className='ideas-container'>
@@ -18,11 +18,17 @@ function Movies({ movies, viewCardDetails,}) {
   );
 }
 
-export default Movies;
-
 Movies.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  viewCardDetails: PropTypes.func.isRequired
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      poster_path: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      average_rating: PropTypes.number.isRequired,
+      release_date: PropTypes.string.isRequired,
+    })
+  )
 }
 
+export default Movies;
 
