@@ -30,10 +30,10 @@
 }
 
 .poster {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   margin-right: .1em;
-  align-self: flex-start; /* Align the image to the top of the left container */
+  align-self: center; 
 }
 
 .tagline {
@@ -58,14 +58,45 @@
 
 .details-wrap {
   display: flex;
+  padding: .5em;
 }
 
 nav {
   border: solid;
+  border-radius: 5px;
   color: #004777;
   align-self: center;
 }
 
 iframe {
   align-self: center;
+}
+
+/* tablet */
+@media screen and (max-width: 900px) {
+  .details-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-container, .right-container {
+    width: 50%;
+  }
+  iframe {
+    height: 50%;
+    width: 89%;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 500px) {
+  .details-wrap {
+    display: block;
+  }
+  .left-container, .right-container {
+    width: 100%;
+  }
+  iframe {
+    height: 50%;
+    width: 89%;
+  }
 }
