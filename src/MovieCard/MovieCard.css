@@ -22,6 +22,9 @@
 }
 
 .right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   flex: 2;
   padding: .1em;
 }
@@ -58,5 +61,11 @@
 }
 
 nav {
+  border: solid;
+  color: #004777;
+  align-self: center;
+}
+
+iframe {
   align-self: center;
 }
