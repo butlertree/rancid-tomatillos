@@ -7,8 +7,6 @@ import ImageCard from '../ImageCard/ImageCard';
 import MovieCard from '../MovieCard/MovieCard';
 import NotFound from '../NotFound/NotFound';
 
-
-
 function App() {
 
   // State to manage the selected card
@@ -27,10 +25,9 @@ function App() {
       .catch(error => setError(error.message))
   }, []);
   
-  
   return (
     <main className='App'>
-      <h1 className='bigHeading'>Rancid Tomatillos</h1>
+      <h1 className='big-heading'>Rancid Tomatillos</h1>
       <Routes>
         <Route
           path="/"
@@ -48,7 +45,6 @@ function App() {
       {error && <h2>Something went wrong, please try again later!</h2>}
     </main>
   );
-
 }
 
 export default App;
