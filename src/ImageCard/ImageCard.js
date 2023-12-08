@@ -9,7 +9,7 @@ function ImageCard({ card }) {
   return (
     <Link to={`/movie/${id}`}> 
         <div className='logo-container'>
-          <img src={poster_path} alt={title + ' movie poster'} className='movie-poster' />
+          <img src={poster_path} alt={title + ' movie poster with a white border'} className='movie-poster' />
         </div>
     </Link>
   );
