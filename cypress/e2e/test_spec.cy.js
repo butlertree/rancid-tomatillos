@@ -64,12 +64,20 @@ describe('API calls', () => {
     });
     it('should display movie cards', () => {
       cy.get('.movie-poster').should('exist');
+
+      //Check the src of the first movie poster
+      cy.get('.movie-poster').first().should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg');
+
+    // Check the src of the last movie poster
+    cy.get('.movie-poster').last().should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//woTQx9Q4b8aO13jR9dsj8C9JESy.jpg');
+      
     });
 
     describe('View Card Details', () => {
       it('should display movie details when a card is clicked', () => {
         cy.get('.movie-poster').first().click();
         cy.get('.right-container').should('exist');
+        cy.url().should('eq', 'http://localhost:3000/movie/436270')
       });
     });
   });
@@ -80,6 +88,7 @@ describe('API calls', () => {
         cy.get('.movie-card').should('exist');
         cy.get('.nav').click();
         cy.get('.movie-poster').should('exist');
+        cy.url().should('eq', 'http://localhost:3000/')
       });
     });
 });
@@ -94,5 +103,6 @@ describe('Invalid Route Handling', () => {
     cy.get('h2').contains('404 Page Not Found');
     cy.get('p').contains('The page you are looking for does not exist.');
     cy.get('.nav').contains('Main').should('exist');
+    cy.url().should('eq', 'http://localhost:3000/path-that-does-not-exist')
   });
 });
