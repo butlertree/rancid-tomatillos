@@ -43,28 +43,28 @@ function MovieCard() {
   const videoUrl = teaserVideoKey ? `https://www.youtube.com/embed/${teaserVideoKey}` : null;
 console.log(videoUrl)
   return (
-    <div className="movie-card">
+    <article className="movie-card">
       <nav>
         <NavLink to="/" className="nav">Main</NavLink>
       </nav>
       <div className='details-wrap'> 
-        <div className="left-container">
-          <img src={poster_path} alt="movie poster" className="poster" />
-        </div>
-        <div className="right-container">
+        <section className="left-container">
+          <img src={poster_path} alt={title + ' movie poster'} className="poster" />
+        </section>
+        <section className="right-container">
           <h2 className="title">{title}</h2>
-          <p className="tagline">{tagline}</p>
-          <p className='runtime'>{runtime} minutes</p>
           <h3 className="release-date">released {release_date}</h3>
           <h3 className="average-rating">average rating {average_rating?.toFixed(2)}/10</h3>
+          <p className="tagline">{tagline}</p>
+          <p className='runtime'>{runtime} minutes</p>
           <p className="overview">{overview}</p>
           {teaserVideoKey && (
             <iframe width="560" height="315" src={videoUrl} allowFullScreen title="Teaser Video"></iframe>
           )}
-        </div>
+        </section>
       </div>
       {error && <h2>Something went wrong, please try again later!</h2>}
-    </div>
+    </article>
   );
 }
 

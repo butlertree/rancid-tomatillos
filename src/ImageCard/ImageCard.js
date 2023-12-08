@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function ImageCard({ card }) {
-  const { poster_path, id} = card;
+  const { poster_path, id, title } = card;
 
   return (
     <Link to={`/movie/${id}`}> 
         <div className='logo-container'>
-          <img src={poster_path} alt='Movie Poster' className='movie-poster' />
+          <img src={poster_path} alt={title + ' movie poster with a white border'} className='movie-poster' />
         </div>
     </Link>
   );

@@ -1,16 +1,19 @@
 .movie-card {
   display: flex;
   color: #A30000;
+  align-self: center;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin: .1em;
+  margin: .25em;
   padding: .1em;
   border: 1px solid #ccc;
+  overflow-y: hidden;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   background-color: white;
   height: 100%;
+  width: 95%;
 }
 
 .left-container {
@@ -38,7 +41,7 @@
 
 .tagline {
   font-style: italic;
-  margin-bottom: .1em;
+  margin: .1em;
 }
 
 .title {
