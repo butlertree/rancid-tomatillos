@@ -49,7 +49,7 @@ console.log(videoUrl)
       </nav>
       <div className='details-wrap'> 
         <div className="left-container">
-          <img src={poster_path} alt="movie poster" className="poster" />
+          <img src={poster_path} alt={title + ' movie poster'} className="poster" />
         </div>
         <div className="right-container">
           <h2 className="title">{title}</h2>
