@@ -1,7 +1,7 @@
 import React from 'react';
 import './ImageCard.css';
 import PropTypes from 'prop-types';
-import { Link, useParams, } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function ImageCard({ card }) {
   const { poster_path, id} = card;
@@ -15,9 +15,12 @@ function ImageCard({ card }) {
   );
 }
 
-export default ImageCard;
 
 ImageCard.propTypes = {
-card: PropTypes.object.isRequired,
-viewCardDetails: PropTypes.func.isRequired,
-}
+  card: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      poster_path: PropTypes.string.isRequired,  
+    }).isRequired
+};
+
+export default ImageCard;
