@@ -2,15 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Movies from '../Movies/Movies';
-import { Routes, Route, NavLink, } from 'react-router-dom';
-import ImageCard from '../ImageCard/ImageCard';
+import { Routes, Route } from 'react-router-dom';
 import MovieCard from '../MovieCard/MovieCard';
 import NotFound from '../NotFound/NotFound';
 
 function App() {
-
-  // State to manage the selected card
-  const [selectedCard, setSelectedCard] = useState(null);
 
   // State to store the list of sightings
   const [movies, setMovies] = useState([]);
