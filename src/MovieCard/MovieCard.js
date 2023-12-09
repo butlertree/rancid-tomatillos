@@ -1,10 +1,7 @@
-
 import './MovieCard.css';
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useParams, NavLink } from 'react-router-dom';
 
-// { goBackToMain }
 
 function MovieCard() {
   const { id } = useParams();
@@ -41,7 +38,7 @@ function MovieCard() {
 
   const teaserVideoKey = findTeaserVideoKey(videoData);
   const videoUrl = teaserVideoKey ? `https://www.youtube.com/embed/${teaserVideoKey}` : null;
-console.log(videoUrl)
+
   return (
     <article className="movie-card">
       <nav>

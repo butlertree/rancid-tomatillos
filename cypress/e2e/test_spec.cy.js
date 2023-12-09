@@ -69,7 +69,7 @@ describe('API calls', () => {
       cy.get('.movie-poster').first().should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg');
 
     // Check the src of the last movie poster
-    cy.get('.movie-poster').last().should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//woTQx9Q4b8aO13jR9dsj8C9JESy.jpg');
+      cy.get('.movie-poster').last().should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//woTQx9Q4b8aO13jR9dsj8C9JESy.jpg');
       
     });
 
