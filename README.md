@@ -4,14 +4,18 @@
 This application enables a user to view a collection of movie posters and view details about a movie (runtime, trailer, release date, and more) by clicking/tapping on their poster of choice. They can navigate back to the main view from the details page via a NavLink, or by utilizing the forward and back buttons on their browser. In case of user or server error, appropriate error messages are shown.
 
 ### App Preview:
-1. MacBook Pro 
-![Screen Recording 2023-12-08 at 6 35 25 PM](https://gist.github.com/assets/139941423/14c28fa7-0afe-450b-b3ef-90f2d6767b02)
+1. MacBook Pro
+
+![Screen Recording 2023-12-08 at 6 32 04 PM](https://github.com/tenthwalker/rancid-tomatillos/assets/139941423/81edc5d0-9464-4867-a43d-4c449d57b69b)
 
 2. Samsung Galaxy S20 Ultra
-![Screen Recording 2023-12-08 at 6 32 04 PM](https://gist.github.com/assets/139941423/69cecd46-2b8a-4892-a14c-1f80e72723aa)
+
+![Screen Recording 2023-12-08 at 6 35 25 PM](https://github.com/tenthwalker/rancid-tomatillos/assets/139941423/26ca9e78-1562-42ec-ab47-8beda59c1888)
 
 3. iPad Air
-![Screen Recording 2023-12-08 at 6 37 49 PM](https://gist.github.com/assets/139941423/7162a414-e2d6-4b40-94a9-7f40e2f66beb)
+
+![Screen Recording 2023-12-08 at 6 37 49 PM](https://github.com/tenthwalker/rancid-tomatillos/assets/139941423/3e911797-9bd9-49d9-b3b2-1e3e3af75cf6)
+
 
 ### Learning Goals:
 - Gain competency with React fundamentals
